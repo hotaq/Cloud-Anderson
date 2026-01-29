@@ -4,6 +4,11 @@
 
 ---
 
+## 🔔 Handoff (2026-01-29 21:42:23)
+
+**คลอด (Claude Code)** → **พีช (OpenCode):** สร้างระบบ handoff เสร็จแล้ว ช่วยทดสอบหน่อย
+
+---
 ## Latest Update (2026-01-29 21:40:59)
 
 ✅ Test commit — สร้าง git wrapper
