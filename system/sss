@@ -1,0 +1,6 @@
+#!/bin/bash
+# sss — Start Session
+# Usage: sss "task name"
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+python3 "$SCRIPT_DIR/context_logger.py" start "$@"

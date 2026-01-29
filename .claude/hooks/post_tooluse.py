@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-PostToolUse Hook — Auto log file edits
+PostToolUse Hook — Auto log file edits with deduplication
 """
+import fcntl
 import json
 import sys
 from datetime import datetime
@@ -14,27 +15,51 @@ def main():
     except:
         sys.exit(0)
 
-    project_dir = Path(sys.argv[1]) if len(sys.argv) > 1 else Path.cwd()
-
     # Get tool info
-    tool_name = input_data.get('tool', '')
+    tool_name = input_data.get('tool_name', '')
     tool_input = input_data.get('tool_input', {})
+    tool_use_id = input_data.get('tool_use_id', '')
 
-    # Only log Edit and Write tools
-    if tool_name not in ['Edit', 'Write']:
+    # Only log Edit, Write, NotebookEdit, MultiEdit tools
+    if tool_name not in ['Edit', 'Write', 'NotebookEdit', 'MultiEdit']:
         sys.exit(0)
 
     file_path = tool_input.get('file_path', '')
-
-    # Skip non-project files
-    if not file_path or not str(file_path).startswith(str(project_dir)):
+    if not file_path:
         sys.exit(0)
+
+    # Detect project directory
+    if len(sys.argv) > 1 and sys.argv[1]:
+        project_dir = Path(sys.argv[1])
+    else:
+        path = Path(file_path).resolve()
+        project_dir = None
+        for parent in [path] + list(path.parents):
+            if (parent / '.claude').exists() or (parent / 'ψ').exists():
+                project_dir = parent
+                break
+        if not project_dir:
+            sys.exit(0)
+
+    # Deduplication using tool_use_id with file locking
+    dedup_file = project_dir / "ψ" / "active" / ".hook_dedup"
+    if tool_use_id:
+        try:
+            # Open file with exclusive lock
+            with open(dedup_file, 'a+') as f:
+                fcntl.flock(f.fileno(), fcntl.LOCK_EX)  # Exclusive lock
+                f.seek(0)  # Read from beginning
+                processed_ids = set(f.read().split())
+                if tool_use_id in processed_ids:
+                    sys.exit(0)
+        except:
+            pass
 
     # Get relative path
     try:
         rel_path = Path(file_path).relative_to(project_dir)
     except:
-        rel_path = Path(file_path)
+        rel_path = Path(file_path).name
 
     # Check for active session
     session_file = project_dir / "ψ" / "active" / ".current_session"
@@ -75,10 +100,43 @@ def main():
 {action} `{rel_path}`
 """
 
+    # Append entry first
     with open(session_path, 'a', encoding='utf-8') as f:
         f.write(entry)
 
-    print(f"✅ Logged: {action} {rel_path}")
+    # Clean up duplicates (after writing)
+    try:
+        with open(session_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # Remove consecutive duplicates
+        lines = content.split('\n')
+        cleaned_lines = []
+        prev_line = None
+
+        for line in lines:
+            if line != prev_line:
+                cleaned_lines.append(line)
+                prev_line = line
+            # Skip if same as previous (duplicate)
+
+        # Write back if changed
+        if len(cleaned_lines) != len(lines):
+            with open(session_path, 'w', encoding='utf-8') as f:
+                f.write('\n'.join(cleaned_lines))
+    except:
+        pass
+
+    # Mark this tool_use_id as processed (best effort)
+    if tool_use_id:
+        try:
+            with open(dedup_file, 'a') as f:
+                f.write(f"{tool_use_id}\n")
+        except:
+            pass
+
+    # Silent — no output to save context
+    sys.exit(0)
 
 if __name__ == "__main__":
     main()

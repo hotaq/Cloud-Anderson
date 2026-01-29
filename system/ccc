@@ -1,0 +1,6 @@
+#!/bin/bash
+# ccc — Commit & Close Session
+# Usage: ccc "commit message"
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+python3 "$SCRIPT_DIR/git_commit.py" "$@"

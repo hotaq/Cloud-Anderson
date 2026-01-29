@@ -18,7 +18,7 @@ from pathlib import Path
 # Base paths
 BASE_DIR = Path(__file__).parent.parent
 SESSION_FILE = BASE_DIR / "ψ" / "active" / ".current_session"
-CURRENT_WORK_FILE = BASE_DIR / "system" / "current-work.md"
+FOCUS_FILE = BASE_DIR / "ψ" / "inbox" / "focus.md"
 
 def get_current_session():
     """ดึง session ปัจจุบัน"""
@@ -40,41 +40,39 @@ def end_current_session():
         if result.returncode == 0:
             print(f"📝 {result.stdout.strip()}")
 
-def update_current_work(commit_message):
-    """Update system/current-work.md"""
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    entry = f"""
+def update_focus(commit_message):
+    """Update ψ/inbox/focus.md"""
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
 
-## Latest Update ({timestamp})
+    if not FOCUS_FILE.exists():
+        print(f"⚠️  Focus file not found: {FOCUS_FILE}")
+        return
 
-{commit_message}
+    with open(FOCUS_FILE, 'r', encoding='utf-8') as f:
+        content = f.read()
 
----
+    # Update timestamp and add to log
+    lines = content.split('\n')
+    new_lines = []
 
-"""
+    for line in lines:
+        # Update timestamp
+        if line.startswith('| **เวลา** |'):
+            new_lines.append(f'| **เวลา** | {datetime.now().strftime("%H:%M")} น. |')
+        # Update AI
+        elif line.startswith('| **AI ปัจจุบัน** |'):
+            new_lines.append('| **AI ปัจจุบัน** | คลอด (Claude Code) |')
+        else:
+            new_lines.append(line)
 
-    if CURRENT_WORK_FILE.exists():
-        with open(CURRENT_WORK_FILE, 'r', encoding='utf-8') as f:
-            content = f.read()
-        # Insert after the first header
-        lines = content.split('\n')
-        insert_idx = 0
-        for i, line in enumerate(lines):
-            if line.startswith('##') and i > 0:
-                insert_idx = i
-                break
-        lines.insert(insert_idx, entry.strip())
-        content = '\n'.join(lines)
-    else:
-        content = f"""# Current Work
+    # Add log entry at the end
+    new_lines.append(f"\n### {timestamp}")
+    new_lines.append(f"{commit_message}")
 
-{entry.strip()}
-"""
+    with open(FOCUS_FILE, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(new_lines))
 
-    with open(CURRENT_WORK_FILE, 'w', encoding='utf-8') as f:
-        f.write(content)
-
-    print(f"✅ Updated {CURRENT_WORK_FILE}")
+    print(f"✅ Updated {FOCUS_FILE}")
 
 def git_commit(message, mention=None):
     """ทำ git commit"""
@@ -130,8 +128,8 @@ Examples:
     if not args.no_log:
         end_current_session()
 
-    # Update current-work.md
-    update_current_work(args.message)
+    # Update focus.md
+    update_focus(args.message)
 
     # git add
     print("📦 Staging changes...")

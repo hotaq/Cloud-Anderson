@@ -70,5 +70,18 @@ def main():
 
     print(f"✅ Session auto-saved to: {log_file}")
 
+    # Create reflection template
+    import subprocess
+    try:
+        result = subprocess.run(
+            ["python3", str(project_dir / "system" / "reflection.py"), str(project_dir)],
+            capture_output=True,
+            text=True
+        )
+        if result.returncode == 0:
+            print(result.stdout.strip())
+    except Exception as e:
+        print(f"⚠️ Could not create reflection: {e}")
+
 if __name__ == "__main__":
     main()

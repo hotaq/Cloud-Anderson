@@ -1,0 +1,116 @@
+
+[2026-01-29 23:27:25.239] PostToolUse
+  Session: test-deb
+  Tool: Write
+  Input: {
+  "session_id": "test-debug-123",
+  "hook_event_name": "PostToolUse",
+  "tool_name": "Write"
+}
+---
+
+[2026-01-29 23:27:54.333] Unknown
+  Session: N/A
+  Tool: N/A
+  Input: {}
+---
+[2026-01-29 23:28:11.499] PostToolUse
+  Session: 03f6c153
+  Tool: Write
+  Input: {"session_id": "03f6c153-2192-4bad-88a5-b88770f02814", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/03f6c153-2192-4bad-88a5-b88770f02814.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:28:18.057] Unknown
+  Session: N/A
+  Tool: N/A
+  Input: {"test": "value"}...
+---
+[2026-01-29 23:30:10.409] PostToolUse
+  Session: 03f6c153
+  Tool: Edit
+  Input: {"session_id": "03f6c153-2192-4bad-88a5-b88770f02814", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/03f6c153-2192-4bad-88a5-b88770f02814.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:31:25.992] SessionStart
+  Session: cddc2654
+  Tool: N/A
+  Input: {"session_id": "cddc2654-6920-4432-88fa-99db6c254a3a", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/cddc2654-6920-4432-88fa-99db6c254a3a.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:36:37.856] PostToolUse
+  Session: cddc2654
+  Tool: Edit
+  Input: {"session_id": "cddc2654-6920-4432-88fa-99db6c254a3a", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/cddc2654-6920-4432-88fa-99db6c254a3a.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:36:40.695] PostToolUse
+  Session: cddc2654
+  Tool: Edit
+  Input: {"session_id": "cddc2654-6920-4432-88fa-99db6c254a3a", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/cddc2654-6920-4432-88fa-99db6c254a3a.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:37:13.061] PostToolUse
+  Session: cddc2654
+  Tool: Edit
+  Input: {"session_id": "cddc2654-6920-4432-88fa-99db6c254a3a", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/cddc2654-6920-4432-88fa-99db6c254a3a.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:40:00.048] PostToolUse
+  Session: cddc2654
+  Tool: Write
+  Input: {"session_id": "cddc2654-6920-4432-88fa-99db6c254a3a", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/cddc2654-6920-4432-88fa-99db6c254a3a.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:46:32.705] PostToolUse
+  Session: cddc2654
+  Tool: Write
+  Input: {"session_id": "cddc2654-6920-4432-88fa-99db6c254a3a", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/cddc2654-6920-4432-88fa-99db6c254a3a.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:47:48.961] PostToolUse
+  Session: cddc2654
+  Tool: Write
+  Input: {"session_id": "cddc2654-6920-4432-88fa-99db6c254a3a", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/cddc2654-6920-4432-88fa-99db6c254a3a.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:50:12.396] SessionStart
+  Session: 6251238f
+  Tool: N/A
+  Input: {"session_id": "6251238f-10ee-4c1a-ba10-69bd08ebd6e1", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/6251238f-10ee-4c1a-ba10-69bd08ebd6e1.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:52:55.202] PostToolUse
+  Session: d12f18f5
+  Tool: Write
+  Input: {"session_id": "d12f18f5-b383-4038-b35a-022738c7ec5b", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/d12f18f5-b383-4038-b35a-022738c7ec5b.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:52:55.247] PostToolUse
+  Session: d12f18f5
+  Tool: Write
+  Input: {"session_id": "d12f18f5-b383-4038-b35a-022738c7ec5b", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/d12f18f5-b383-4038-b35a-022738c7ec5b.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:56:32.685] PostToolUse
+  Session: d12f18f5
+  Tool: Write
+  Input: {"session_id": "d12f18f5-b383-4038-b35a-022738c7ec5b", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/d12f18f5-b383-4038-b35a-022738c7ec5b.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:56:32.753] PostToolUse
+  Session: d12f18f5
+  Tool: Write
+  Input: {"session_id": "d12f18f5-b383-4038-b35a-022738c7ec5b", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/d12f18f5-b383-4038-b35a-022738c7ec5b.jsonl", "cwd": "/User...
+---
+[2026-01-29 23:59:40.595] PostToolUse
+  Session: d12f18f5
+  Tool: Edit
+  Input: {"session_id": "d12f18f5-b383-4038-b35a-022738c7ec5b", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/d12f18f5-b383-4038-b35a-022738c7ec5b.jsonl", "cwd": "/User...
+---
+[2026-01-30 00:00:14.673] PostToolUse
+  Session: d12f18f5
+  Tool: Edit
+  Input: {"session_id": "d12f18f5-b383-4038-b35a-022738c7ec5b", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/d12f18f5-b383-4038-b35a-022738c7ec5b.jsonl", "cwd": "/User...
+---
+[2026-01-30 00:00:21.099] PostToolUse
+  Session: d12f18f5
+  Tool: Edit
+  Input: {"session_id": "d12f18f5-b383-4038-b35a-022738c7ec5b", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/d12f18f5-b383-4038-b35a-022738c7ec5b.jsonl", "cwd": "/User...
+---
+[2026-01-30 00:06:43.425] PostToolUse
+  Session: d12f18f5
+  Tool: Edit
+  Input: {"session_id": "d12f18f5-b383-4038-b35a-022738c7ec5b", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/d12f18f5-b383-4038-b35a-022738c7ec5b.jsonl", "cwd": "/User...
+---
+[2026-01-30 00:10:17.607] PostToolUse
+  Session: d12f18f5
+  Tool: Write
+  Input: {"session_id": "d12f18f5-b383-4038-b35a-022738c7ec5b", "transcript_path": "/Users/chinnphats/.claude/projects/-Users-chinnphats-Desktop-agent/d12f18f5-b383-4038-b35a-022738c7ec5b.jsonl", "cwd": "/User...
+---
