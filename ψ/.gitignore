@@ -1,0 +1,6 @@
+# Oracle Framework - Gitignored Directories
+# These are ephemeral or personal working directories
+
+active/
+incubate/
+learn/
