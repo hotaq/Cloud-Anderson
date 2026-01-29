@@ -18,7 +18,7 @@ from pathlib import Path
 # Base paths
 BASE_DIR = Path(__file__).parent.parent
 ACTIVE_DIR = BASE_DIR / "ψ" / "active" / "context"
-MEMORY_DIR = BASE_DIR / "ψ" / "memory" / "logs"
+MEMORY_DIR = BASE_DIR / "ψ" / "logs"
 SESSION_FILE = BASE_DIR / "ψ" / "active" / ".current_session"
 
 def get_current_session():
