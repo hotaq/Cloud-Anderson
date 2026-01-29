@@ -8,14 +8,14 @@
 
 ## Quick Start
 
-**🚨 เริ่มใหม่? อ่าน `INIT.md` ก่อนเสมอ**
+**🚨 เริ่มใหม่? CLAUDE.md โหลดอัตโนมัติ**
 
 ```bash
-# 1. Load context (ต้องทำก่อนเริ่มงานทุกครั้ง)
-cat INIT.md
-
-# 2. ดูงานที่กำลังทำอยู่
+# 1. ดูงานที่กำลังทำอยู่
 cat system/current-work.md
+
+# 2. เริ่ม session
+python3 system/context_logger.py start "task"
 
 # 3. อ่านเอกสารเพิ่มเติม
 cat docs/oracle-framework.md
@@ -31,7 +31,7 @@ cat docs/oracle-framework.md
 ├── system/      ← System Files (ระบบ logging)
 ├── docs/        ← Documentation (เอกสาร)
 ├── goals/       ← Goals (เป้าหมาย)
-└── INIT.md      ← Load context first
+└── CLAUDE.md    ← Auto-loaded context
 ```
 
 ---
@@ -40,7 +40,7 @@ cat docs/oracle-framework.md
 
 | ไฟล์ | อธิบาย |
 |------|---------|
-| [INIT.md](./INIT.md) | **อ่านก่อนเริ่มงานทุกครั้ง** |
+| [CLAUDE.md](./CLAUDE.md) | **Auto-loaded context (อ่านอัตโนมัติ)** |
 | [system/current-work.md](./system/current-work.md) | งานที่กำลังทำอยู่ |
 | [ψ/README.md](./ψ/README.md) | โครงสร้าง ψ/ |
 | [docs/oracle-framework.md](./docs/oracle-framework.md) | เอกสาร Oracle Framework ฉบับเต็ม |
