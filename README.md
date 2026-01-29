@@ -8,15 +8,17 @@
 
 ## Quick Start
 
-```bash
-# อ่านเอกสารหลัก
-cat docs/oracle-framework.md
+**🚨 เริ่มใหม่? อ่าน `INIT.md` ก่อนเสมอ**
 
-# ดูสถานะปัจจุบัน
+```bash
+# 1. Load context (ต้องทำก่อนเริ่มงานทุกครั้ง)
+cat INIT.md
+
+# 2. ดูงานที่กำลังทำอยู่
 cat system/current-work.md
 
-# รู้จักทีม
-cat docs/agents.md
+# 3. อ่านเอกสารเพิ่มเติม
+cat docs/oracle-framework.md
 ```
 
 ---
@@ -25,11 +27,11 @@ cat docs/agents.md
 
 ```
 .
-├── ψ/           ← Shared Soul (วิญญาณเดียว)
-├── agents/      ← AI Agents (คลอด, มักซ์, พีช)
+├── ψ/           ← External Brain (จิตวิญญาณ)
+├── system/      ← System Files (ระบบ logging)
 ├── docs/        ← Documentation (เอกสาร)
-├── system/      ← System Files (ระบบ)
-└── goals/       ← Goals (เป้าหมาย)
+├── goals/       ← Goals (เป้าหมาย)
+└── INIT.md      ← Load context first
 ```
 
 ---
@@ -38,10 +40,12 @@ cat docs/agents.md
 
 | ไฟล์ | อธิบาย |
 |------|---------|
-| [docs/oracle-framework.md](./docs/oracle-framework.md) | เอกสาร Oracle Framework ฉบับเต็ม |
-| [docs/agents.md](./docs/agents.md) | รู้จักทีม AI ทุกตัว |
+| [INIT.md](./INIT.md) | **อ่านก่อนเริ่มงานทุกครั้ง** |
 | [system/current-work.md](./system/current-work.md) | งานที่กำลังทำอยู่ |
-| [goals/main.md](./goals/main.md) | เป้าหมายหลัก |
+| [ψ/README.md](./ψ/README.md) | โครงสร้าง ψ/ |
+| [docs/oracle-framework.md](./docs/oracle-framework.md) | เอกสาร Oracle Framework ฉบับเต็ม |
+| [docs/CONTEXT_LOGGING.md](./docs/CONTEXT_LOGGING.md) | วิธีใช้ระบบ Context Logging |
+| [docs/DEPRECATED-MULTI-AGENT.md](./docs/DEPRECATED-MULTI-AGENT.md) | เหตุผลที่หยุด Multi-Agent |
 
 ---
 
